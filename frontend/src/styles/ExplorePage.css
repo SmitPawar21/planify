@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.card-area {
+    width: 100%;
+    min-height: 90vh;
+    box-sizing: border-box;
+    padding: 2vh 1vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2vh;
+    background-color: lightgray;
+}
