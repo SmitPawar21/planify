@@ -53,7 +53,7 @@ export const SignupPage = () => {
           } else if (data.message === "user already exist") {
             alert("User with this Email already exist. Try Another to create new account.")
           } else {
-            alert("Something went wrong");
+            alert("Something went wrong. Check Your credentials.");
           }
         })
     }

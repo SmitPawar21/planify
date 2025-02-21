@@ -1,17 +1,25 @@
 package com.smit.planify.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.smit.planify.entities.Event;
 import com.smit.planify.service.EventService;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class EventController {
 	
 	@Autowired
@@ -27,9 +35,18 @@ public class EventController {
 		return service.getOneEvent(id);
 	}
 	
-	@PostMapping("event")
-	public void addEvent(@RequestBody Event event) {
-		service.addOneEvent(event);
+	@PostMapping("/event")
+	public ResponseEntity<Map<String, String>> addEvent(@RequestBody Event event) {
+		Map<String, String> response = new HashMap<>();
+		String answer = service.addOneEvent(event);
+		
+		if(answer == "event saved") {
+			response.put("message", answer);
+			return ResponseEntity.ok(response);
+		}
+		
+		response.put("error", answer);
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
 	}
 	
 }

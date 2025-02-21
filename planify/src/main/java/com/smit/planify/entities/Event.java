@@ -1,6 +1,6 @@
 package com.smit.planify.entities;
 
-import java.util.Date;
+import java.util.date_time;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,8 +22,15 @@ public class Event {
 	private String category;
 	private String description;
 	private String location;
-	private Date date;
+	private String date_time;
+	private int max_limit;
 	
+	public int getMax_limit() {
+		return max_limit;
+	}
+	public void setMax_limit(int max_limit) {
+		this.max_limit = max_limit;
+	}
 	// Getters and Setters
 	public String getEvent_code() {
 		return event_code;
@@ -55,11 +62,11 @@ public class Event {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Date getDate() {
-		return date;
+	public String getdate_time() {
+		return date_time;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setdate_time(String date_time) {
+		this.date_time = date_time;
 	}
 	
 }

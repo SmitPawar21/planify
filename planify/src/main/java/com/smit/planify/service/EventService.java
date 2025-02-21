@@ -23,8 +23,13 @@ public class EventService {
 		return repo.findById(id);
 	}
 	
-	public void addOneEvent(Event event) {
-		repo.save(event);
+	public String addOneEvent(Event event) {
+		try {			
+			repo.save(event);
+			return "event saved";
+		} catch (Exception e) {
+			return e.toString();
+		}
 	}
 	
 }
