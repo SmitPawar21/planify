@@ -15,12 +15,32 @@ public class Event {
 
     @Column(unique = true, nullable = false)
     private String event_code; // Keep as a unique field
+    
+    private int user_id;
 	
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(String dateTime) {
+		this.dateTime = dateTime;
+	}
 	private String title;
 	private String category;
 	private String description;
 	private String location;
-	private String date_time;
+	private String dateTime;
 	private int max_limit;
 	
 	public int getMax_limit() {
@@ -59,12 +79,6 @@ public class Event {
 	}
 	public void setLocation(String location) {
 		this.location = location;
-	}
-	public String getdate_time() {
-		return date_time;
-	}
-	public void setdate_time(String date_time) {
-		this.date_time = date_time;
 	}
 	
 }

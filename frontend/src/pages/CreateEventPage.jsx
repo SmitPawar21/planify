@@ -6,6 +6,7 @@ import desc from "../assets/desc.svg";
 import loc from "../assets/loc.svg";
 import time from "../assets/time.svg";
 import group from "../assets/group.svg";
+import Cookies from 'js-cookie';
 
 export const CreateEventPage = () => {
 
@@ -17,6 +18,7 @@ export const CreateEventPage = () => {
         location: "",
         date_time: "",
         max_limit: null,
+        user_id: Cookies.get('userId')
     });
 
     const handleChange = (e) => {
@@ -49,7 +51,7 @@ export const CreateEventPage = () => {
             await fetch('http://localhost:8080/event', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json'
+                    'Content-type': 'application/json; charset= utf-8'
                 },
                 body: JSON.stringify(formData)
             })
@@ -58,8 +60,6 @@ export const CreateEventPage = () => {
                     console.log(data);
                 })
         }, 1000);
-
-            await fetch('http://localhost:8080/eventcreate')
 
     }
 
