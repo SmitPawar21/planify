@@ -59,6 +59,8 @@ export const CreateEventPage = () => {
                 })
         }, 1000);
 
+            await fetch('http://localhost:8080/eventcreate')
+
     }
 
     return (

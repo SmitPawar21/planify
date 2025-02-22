@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smit.planify.entities.Event;
+import com.smit.planify.entities.EventCreation;
 import com.smit.planify.service.EventService;
 
 @RestController
@@ -42,6 +44,21 @@ public class EventController {
 		
 		if(answer == "event saved") {
 			response.put("message", answer);
+			return ResponseEntity.ok(response);
+		}
+		
+		response.put("error", answer);
+		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+	}
+	
+	@PostMapping("/eventcreate")
+	public ResponseEntity<Map<String, String>> addEventUser(@RequestBody EventCreation eventCr) {
+		Map<String, String> response = new HashMap<>();
+		String answer = service.addEventUser(eventCr);
+		
+		if(answer == "event and user saved") {
+			response.put("message", answer);
+			
 			return ResponseEntity.ok(response);
 		}
 		
