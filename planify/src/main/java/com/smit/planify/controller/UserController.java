@@ -62,8 +62,13 @@ public class UserController {
 		Map<String, String> response = new HashMap<>();
 		
 		Optional<User> user =  service.checkOneUser(loginDTO.getEmail(), loginDTO.getPassword());
+		
 		if(user.isPresent()) {
+			
+			long user_id = user.get().getUserId();
+			
 			response.put("message", "yes");
+			response.put("user_id", "" + user_id);
 			
 			return ResponseEntity.ok(response);
 		}			

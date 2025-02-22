@@ -8,6 +8,7 @@ import linkedinsvg from "../assets/linkedin.svg";
 import twittersvg from "../assets/twitter.svg";
 import microsoftsvg from "../assets/microsoft.svg";
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -47,6 +48,10 @@ export const LoginPage = () => {
   
             if(data.message === "yes") {
               alert("Welcome to Planify");
+              const user_id = data.user_id;
+
+              console.log(user_id);
+              Cookies.set('userId', user_id, { expires: 1 }); 
               navigate('/home');
             } else {
               alert("Check Your credentials again. SignUp if not registered yet.");
