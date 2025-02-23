@@ -32,7 +32,7 @@ public class EventController {
 	public List<Event> allEvents() {
 		return service.getAllEvents();
 	}
-	
+		
 	@GetMapping("/event/{id}")
 	public Optional<Event> oneEvent(@PathVariable int id) {
 		return service.getOneEvent(id);

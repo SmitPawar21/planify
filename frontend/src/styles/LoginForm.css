@@ -138,6 +138,9 @@ select {
 .button-box .login-button:hover{
     background-color: #021678;
 }
+.button-box .login-button:active {
+    background-color: #737ca4;
+}
 
 .logo-container {
     width: 60%;

@@ -43,13 +43,4 @@ public class EventService {
 		}
 	}
 	
-//	public String addEventUser(EventCreation eventCr) {
-//		try {
-//			repo_2.save(eventCr);
-//			return "event and user saved";
-//		} catch(Exception e) {
-//			return e.toString();
-//		}
-//	}
-	
 }
